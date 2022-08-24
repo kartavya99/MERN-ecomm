@@ -1,0 +1,16 @@
+.footer {
+  /* margin: 0; */
+  text-align: center;
+  color: azure;
+  background-color: rgb(33, 37, 41);
+  height: 50px;
+  width: 100%;
+  font-size: 25px;
+}
+
+.container {
+  width: 100%;
+  background-color: rgb(33, 37, 41);
+  margin: 0;
+  padding: 0;
+}

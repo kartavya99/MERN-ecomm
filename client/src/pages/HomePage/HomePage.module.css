@@ -1,0 +1,9 @@
+main {
+  min-height: 100vh;
+  background-color: aqua;
+}
+
+.heading {
+  margin-top: 15px;
+  margin-left: 15px;
+}
