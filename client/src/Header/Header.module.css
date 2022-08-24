@@ -1,0 +1,29 @@
+.logo {
+  color: azure;
+  font-size: 25px;
+}
+
+.link {
+  color: azure;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.cart {
+  margin-right: 10px;
+}
+
+.sign-in {
+  margin-right: 10px;
+}
+
+.item {
+  padding: 0;
+}
+
+.admin-menu {
+  min-width: 10px;
+  color: azure;
+  padding: 5px;
+  font-size: 20px;
+}
