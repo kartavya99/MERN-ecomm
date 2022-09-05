@@ -1,22 +1,24 @@
-import React, { useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { useStoreContext } from "../../utils/GlobalState";
-import { QUERY_ALL_PRODUCTS } from "../../utils/queries";
+import React from "react";
 
-const ProductList = () => {
-  const [state, dispatch] = useStoreContext();
+// import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
-  const { data, loading } = useQuery(QUERY_ALL_PRODUCTS);
+const ProductList = ({ product }) => {
+  return (
+    <>
+      <Card className="my-3 p-3 rounded">
+        <Card.Img src={product.image} variant="top" />
 
-  useEffect(() => {
-    if (loading) {
-      <p>....Loading</p>;
-    } else {
-      console.log(data);
-    }
-  });
+        <Card.Body>
+          <Card.Title as="div">
+            <strong>{product.productName}</strong>
+          </Card.Title>
 
-  return <div></div>;
+          <Card.Text as="h3">${product.price}</Card.Text>
+        </Card.Body>
+      </Card>
+    </>
+  );
 };
 
 export default ProductList;

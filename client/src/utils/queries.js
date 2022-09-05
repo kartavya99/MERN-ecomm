@@ -78,8 +78,8 @@ export const QUERY_SINGLE_USER = gql`
 `;
 
 export const QUERY_ALL_PRODUCTS = gql`
-  query Query {
-    products {
+  query products {
+    getAllProducts {
       _id
       productName
       image
