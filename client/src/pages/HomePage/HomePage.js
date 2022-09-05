@@ -8,12 +8,11 @@ import classes from "./HomePage.module.css";
 
 const HomePage = () => {
   const { data, loading } = useQuery(QUERY_ALL_PRODUCTS);
-  console.log(data);
+  //   console.log(data);
   return (
     <>
       <div className={classes.main}>
         <p className={classes.heading}>ECOMMERECE PLATFORM </p>
-        {/* <ProductList /> */}
       </div>
       <Row>
         {data &&

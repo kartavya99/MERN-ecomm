@@ -1,7 +1,7 @@
 [
   {
     "user": "62e787f8f0f291e4aafa43d0",
-    "productName": "iPhone 13 Pro 256GB Memory",
+    "productName": "iPhone 13 Pro 256GB Memory (Graphite) ",
     "image": "/images/phone.jpg",
     "brand": "Apple",
     "description": "The iPhone 13 Pro is a great value iPhone with a heap of big features. The iPhone 13 Pro has a stunning design, comes in a range of new colours, including alpine green, and has a bigger battery!",
@@ -10,7 +10,7 @@
   },
   {
     "user": "62e787f8f0f291e4aafa43d0",
-    "productName": "AirPods (3rd generation)",
+    "productName": "Airpods Wireless Bluetooth Headphones (3rd generation)",
     "image": "/images/airpods3.jpg",
     "brand": "Apple",
     "description": "AirPods are lightweight and offer a contoured design. They sit at just the right angle for comfort and to better direct audio to your ear. The stem is 33 per cent shorter than AirPods (2nd generation) and includes a force sensor to easily control music and calls.",
@@ -32,7 +32,7 @@
     "image": "/images/kindle.jpg",
     "brand": "Kindle",
     "description": "This Kindle Paperwhite is designed for those who are looking to replicate the printed-page feeling without the bulk of carrying around a novel, offering 8 GB of space for your favourite reads.",
-    "price": 239,
+    "price": 239.0,
     "countInStock": 7
   },
   {
@@ -41,7 +41,7 @@
     "image": "/images/powerBank.jpg",
     "brand": "Belkin",
     "description": "The Belkin BoostCharge Powerbank is a great way to keep your devices charged on the go. It has a 10000 mAh battery and 2 USB-A ports and 1 USB-C port for charging up a variety of different devices.",
-    "price": 48,
+    "price": 48.0,
     "countInStock": 14
   }
 ]

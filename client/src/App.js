@@ -6,10 +6,13 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 import "./App.css";
 
@@ -41,11 +44,18 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <div>
+        <Router>
           <Header />
-          <HomePage />
+          <main className="py-3">
+            <Container>
+              <Routes>
+                <Route path="/" element={<HomePage />}></Route>
+                <Route path="/product/:id" element={<ProductPage />}></Route>
+              </Routes>
+            </Container>
+          </main>
           <Footer />
-        </div>
+        </Router>
       </ApolloProvider>
     </>
   );
