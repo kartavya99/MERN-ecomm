@@ -12,15 +12,18 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant="dark" expand="-xl">
         <Container>
-          <Navbar.Brand className={classes.logo}>E-COMM SHOP</Navbar.Brand>
-
-          <Nav.Link className={classes.link}>
-            {" "}
-            <span>
-              <BsCartCheck className={classes.cart} />
-            </span>
-            Cart
-          </Nav.Link>
+          <LinkContainer to="/">
+            <Navbar.Brand className={classes.logo}>E-COMM SHOP</Navbar.Brand>
+          </LinkContainer>
+          <LinkContainer to="/cart/:id">
+            <Navbar.Brand className={classes.link}>
+              {" "}
+              <span>
+                <BsCartCheck className={classes.cart} />
+                Cart
+              </span>
+            </Navbar.Brand>
+          </LinkContainer>
 
           <NavDropdown title="User" id="user" className={classes.link}>
             <NavDropdown.Item className={classes.item}>
@@ -29,12 +32,12 @@ const Header = () => {
             <NavDropdown.Item className={classes.item}>LOGOUT</NavDropdown.Item>
           </NavDropdown>
 
-          <Nav.Link className={classes.link}>
+          <Navbar.Brand className={classes.link}>
             <span className={classes["sign-in"]}>
               <FaSignInAlt />
             </span>
             SIGN IN
-          </Nav.Link>
+          </Navbar.Brand>
           <NavDropdown
             title="Admin"
             id="adminmenu"

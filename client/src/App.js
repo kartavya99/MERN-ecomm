@@ -13,6 +13,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import CartPage from "./pages/CartPage/CartPage";
 
 import "./App.css";
 
@@ -51,6 +52,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />}></Route>
                 <Route path="/product/:id" element={<ProductPage />}></Route>
+                <Route path="cart/:id" element={<CartPage />}></Route>
               </Routes>
             </Container>
           </main>
