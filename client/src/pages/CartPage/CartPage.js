@@ -1,5 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useStoreContext } from "../../utils/GlobalState";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_PRODUCT } from "../../utils/queries";
 import {
   Row,
   Col,
@@ -11,6 +14,15 @@ import {
 } from "react-bootstrap";
 
 const CartPage = () => {
+  //   const [state, dispatch] = useStoreContext();
+  //   const { cart } = state;
+  //   console.log(cart);
+
+  //   const { id } = useParams();
+  //   const { data, loading } = useQuery(QUERY_PRODUCT, {
+  //     variables: { id },
+  //   });
+
   return (
     <Row>
       <Col me={8}>
