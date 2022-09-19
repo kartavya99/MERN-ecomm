@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { BsCartCheck } from "react-icons/bs";
+import { BsCartCheck, BsLink } from "react-icons/bs";
 import { FaSignInAlt } from "react-icons/fa";
 
 import classes from "./Header.module.css";
@@ -32,12 +32,14 @@ const Header = () => {
             <NavDropdown.Item className={classes.item}>LOGOUT</NavDropdown.Item>
           </NavDropdown>
 
-          <Navbar.Brand className={classes.link}>
-            <span className={classes["sign-in"]}>
-              <FaSignInAlt />
-            </span>
-            SIGN IN
-          </Navbar.Brand>
+          <LinkContainer to="/login">
+            <Navbar.Brand className={classes.link}>
+              <span className={classes["sign-in"]}>
+                <FaSignInAlt />
+              </span>
+              SIGN IN
+            </Navbar.Brand>
+          </LinkContainer>
           <NavDropdown
             title="Admin"
             id="adminmenu"

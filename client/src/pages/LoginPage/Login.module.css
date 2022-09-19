@@ -1,0 +1,25 @@
+.main-container {
+  padding-top: 150px;
+}
+
+.heading {
+  padding-bottom: 20px;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.register {
+  color: black;
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+.holder {
+  background-color: #f8f9fa;
+}
+
+.text {
+  margin: 5px;
+}

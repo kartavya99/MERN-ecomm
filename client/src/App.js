@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
+import Login from "./pages/LoginPage/Login";
 
 import "./App.css";
 
@@ -51,6 +52,7 @@ function App() {
             <Container>
               <Routes>
                 <Route path="/" element={<HomePage />}></Route>
+                <Route path="/login" element={<Login />}></Route>
                 <Route path="/product/:id" element={<ProductPage />}></Route>
                 <Route path="cart/:id" element={<CartPage />}></Route>
               </Routes>
