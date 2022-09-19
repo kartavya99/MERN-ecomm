@@ -14,7 +14,8 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
-import Login from "./pages/LoginPage/Login";
+import Login from "./pages/LoginPage/LoginPage";
+import Register from "./pages/RegisterPage/RegisterPage";
 
 import "./App.css";
 
@@ -53,6 +54,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />}></Route>
                 <Route path="/login" element={<Login />}></Route>
+                <Route path="/register" element={<Register />}></Route>
                 <Route path="/product/:id" element={<ProductPage />}></Route>
                 <Route path="cart/:id" element={<CartPage />}></Route>
               </Routes>
