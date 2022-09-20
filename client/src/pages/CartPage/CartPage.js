@@ -22,7 +22,7 @@ const CartPage = () => {
 
   const location = useLocation();
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
-  console.log(qty);
+  console.log(typeof qty);
 
   const { id } = useParams();
   const { data, loading } = useQuery(QUERY_PRODUCT, {
@@ -43,6 +43,7 @@ const CartPage = () => {
           <ListGroup variant="flush">
             {cart.map((item) => {
               console.log(item);
+              console.log(qty);
 
               return (
                 <ListGroup.Item key={item._id}>
@@ -92,14 +93,11 @@ const CartPage = () => {
             <ListGroup.Item>
               <h3>
                 SUBTOTAL(
-                {cart.reduce((acc, item) => acc + item.product.qty, 0)} ){" "}
+                {cart.reduce((acc, item) => acc + qty, 0)} ){" "}
               </h3>
               $
               {cart
-                .reduce(
-                  (acc, item) => acc + item.product.qty * item.product.price,
-                  0
-                )
+                .reduce((acc, item) => acc + qty * item.product.price, 0)
                 .toFixed(2)}
             </ListGroup.Item>
             <ListGroup.Item>

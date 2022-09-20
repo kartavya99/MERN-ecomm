@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <>
       <div className={classes.main}>
-        <p className={classes.heading}>ECOMMERECE PLATFORM </p>
+        <p className={classes.heading}>ECOMMERCE PLATFORM </p>
       </div>
       <Row>
         {data &&
