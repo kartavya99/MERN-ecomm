@@ -13,10 +13,12 @@ import {
   Card,
 } from "react-bootstrap";
 
+import classes from "./Cart.module.css";
+
 const CartPage = () => {
   const [state, dispatch] = useStoreContext();
   const { cart } = state;
-  // console.log(cart);
+  console.log(cart);
 
   const location = useLocation();
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
@@ -54,7 +56,7 @@ const CartPage = () => {
                       />
                     </Col>
                     <Col md={3}>
-                      <Link to={`/product/${item.product}`}>
+                      <Link to={`/product/${item.product._id}`}>
                         {item.product.productName}
                       </Link>
                     </Col>
@@ -71,12 +73,47 @@ const CartPage = () => {
                         )}
                       </Form.Control>
                     </Col>
+
+                    <Col md={2}>
+                      <Button type="button" variant="light">
+                        REMOVE
+                      </Button>
+                    </Col>
                   </Row>
                 </ListGroup.Item>
               );
             })}
           </ListGroup>
         )}
+      </Col>
+      <Col me={4}>
+        <Card>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h3>
+                SUBTOTAL(
+                {cart.reduce((acc, item) => acc + item.product.qty, 0)} ){" "}
+              </h3>
+              $
+              {cart
+                .reduce(
+                  (acc, item) => acc + item.product.qty * item.product.price,
+                  0
+                )
+                .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type="button"
+                variant="light"
+                className={classes["btn-checkout"]}
+                disabled={cart.length === 0}
+              >
+                PROCEED TO CHECKOUT
+              </Button>
+            </ListGroup.Item>
+          </ListGroup>
+        </Card>
       </Col>
     </Row>
   );
