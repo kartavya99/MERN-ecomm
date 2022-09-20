@@ -1,6 +1,6 @@
 import React from "react";
 import { useStoreContext } from "../../utils/GlobalState";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT } from "../../utils/queries";
 import {
@@ -14,9 +14,13 @@ import {
 } from "react-bootstrap";
 
 const CartPage = () => {
-  //   const [state, dispatch] = useStoreContext();
-  //   const { cart } = state;
-  //   console.log(cart);
+  // const [state, dispatch] = useStoreContext();
+  // const { cart } = state;
+  // console.log(cart);
+
+  // const location = useLocation();
+  // const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+  // console.log(qty);
 
   //   const { id } = useParams();
   //   const { data, loading } = useQuery(QUERY_PRODUCT, {

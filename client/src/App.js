@@ -8,6 +8,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { StoreProvider } from "./utils/GlobalState";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -48,19 +49,21 @@ function App() {
     <>
       <ApolloProvider client={client}>
         <Router>
-          <Header />
-          <main className="py-3">
-            <Container>
-              <Routes>
-                <Route path="/" element={<HomePage />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/register" element={<Register />}></Route>
-                <Route path="/product/:id" element={<ProductPage />}></Route>
-                <Route path="cart/:id" element={<CartPage />}></Route>
-              </Routes>
-            </Container>
-          </main>
-          <Footer />
+          <StoreProvider>
+            <Header />
+            <main className="py-3">
+              <Container>
+                <Routes>
+                  <Route path="/" element={<HomePage />}></Route>
+                  <Route path="/login" element={<Login />}></Route>
+                  <Route path="/register" element={<Register />}></Route>
+                  <Route path="/product/:id" element={<ProductPage />}></Route>
+                  <Route path="cart/:id" element={<CartPage />}></Route>
+                </Routes>
+              </Container>
+            </main>
+            <Footer />
+          </StoreProvider>
         </Router>
       </ApolloProvider>
     </>

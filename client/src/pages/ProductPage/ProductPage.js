@@ -3,6 +3,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT } from "../../utils/queries";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
+import { useStoreContext } from "../../utils/GlobalState";
+import { ADD_TO_CART } from "../../utils/action";
 
 import {
   Row,
@@ -16,11 +18,24 @@ import {
 
 const ProductPage = () => {
   const [qty, setQty] = useState();
+  const [state, dispatch] = useStoreContext();
+  const { cart } = state;
 
   const { id } = useParams();
   const { data, loading } = useQuery(QUERY_PRODUCT, {
     variables: { id },
   });
+
+  const navigation = useNavigate();
+
+  const addToCart = () => {
+    dispatch({
+      type: ADD_TO_CART,
+      cart: data,
+    });
+
+    navigation(`/cart/${data.product._id}?qty=${qty}`);
+  };
 
   //   console.log(data);
   //   console.log(data.product.productName);
@@ -103,6 +118,7 @@ const ProductPage = () => {
 
                   <ListGroup.Item>
                     <Button
+                      onClick={addToCart}
                       className="btn-block btn btn-dark btn-sm"
                       type="button"
                       disabled={data.product.countInStock === 0}

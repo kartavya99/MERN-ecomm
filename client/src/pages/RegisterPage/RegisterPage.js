@@ -13,7 +13,6 @@ const RegisterPage = (props) => {
     lastName: "",
     email: "",
     password: "",
-    // confirmPassword: "",
     isAdmin: false,
   });
   const [createUser, { error }] = useMutation(CREATE_USER);
@@ -28,7 +27,6 @@ const RegisterPage = (props) => {
           lastName: formState.lastName,
           email: formState.email,
           password: formState.password,
-          // confirmPassword: formState.confirmPassword,
           isAdmin: formState.isAdmin,
         },
       });
@@ -109,20 +107,6 @@ const RegisterPage = (props) => {
               ></Form.Control>
             </Form.Group>
           </div>
-
-          {/* <div className={classes.title}>
-            <Form.Group>
-              <Form.Label htmlFor="pwd">Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm password"
-                id="pwd"
-                name="confirmPassword"
-                className={classes.holder}
-                onChange={handleChange}
-              ></Form.Control>
-            </Form.Group>
-          </div> */}
 
           {error ? (
             <div>
