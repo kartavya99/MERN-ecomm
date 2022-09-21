@@ -46,7 +46,6 @@ const ProductPage = () => {
       <Link className="btn btn-light my-3" to="/">
         GO BACK
       </Link>
-
       {loading ? (
         <Loader />
       ) : (
