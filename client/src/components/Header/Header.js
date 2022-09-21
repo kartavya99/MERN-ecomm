@@ -47,9 +47,11 @@ const Header = () => {
           >
             <NavDropdown.Item className={classes.item}>Users</NavDropdown.Item>
 
-            <NavDropdown.Item className={classes.item}>
-              Products
-            </NavDropdown.Item>
+            <LinkContainer to="admin/productlist">
+              <NavDropdown.Item className={classes.item}>
+                Products
+              </NavDropdown.Item>
+            </LinkContainer>
 
             <NavDropdown.Item className={classes.item}>Orders</NavDropdown.Item>
           </NavDropdown>
