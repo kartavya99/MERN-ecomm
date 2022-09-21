@@ -1,5 +1,6 @@
 import React from "react";
 import { useStoreContext } from "../../utils/GlobalState";
+import { REMOVE_FROM_CART, ADD_TO_CART } from "../../utils/action";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT } from "../../utils/queries";
@@ -14,6 +15,7 @@ import {
 } from "react-bootstrap";
 
 import classes from "./Cart.module.css";
+import { checkDocument } from "@apollo/client/utilities";
 
 const CartPage = () => {
   const [state, dispatch] = useStoreContext();
@@ -28,6 +30,20 @@ const CartPage = () => {
   const { data, loading } = useQuery(QUERY_PRODUCT, {
     variables: { id },
   });
+
+  const removeFromCart = () => {
+    dispatch({
+      type: REMOVE_FROM_CART,
+      cart: data,
+    });
+  };
+
+  const addToCart = () => {
+    dispatch({
+      type: ADD_TO_CART,
+      cart: data,
+    });
+  };
 
   return (
     <Row>
@@ -63,7 +79,11 @@ const CartPage = () => {
                     </Col>
                     <Col md={2}>${item.product.price}</Col>
                     <Col md={2}>
-                      <Form.Control as="select" value={item.qty}>
+                      <Form.Control
+                        as="select"
+                        value={item.qty}
+                        onChange={addToCart}
+                      >
                         {[...Array(item.product.countInStock).keys()].map(
                           (x) => (
                             <option key={x + 1} value={x + 1}>
@@ -76,7 +96,11 @@ const CartPage = () => {
                     </Col>
 
                     <Col md={2}>
-                      <Button type="button" variant="light">
+                      <Button
+                        type="button"
+                        variant="light"
+                        onClick={removeFromCart}
+                      >
                         REMOVE
                       </Button>
                     </Col>
@@ -92,13 +116,15 @@ const CartPage = () => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h3>
-                SUBTOTAL(
+                SUBTOTAL (&nbsp;
                 {cart.reduce((acc, item) => acc + qty, 0)} ){" "}
               </h3>
-              $
-              {cart
-                .reduce((acc, item) => acc + qty * item.product.price, 0)
-                .toFixed(2)}
+              <h3>
+                $
+                {cart
+                  .reduce((acc, item) => acc + qty * item.product.price, 0)
+                  .toFixed(2)}
+              </h3>{" "}
             </ListGroup.Item>
             <ListGroup.Item>
               <Button

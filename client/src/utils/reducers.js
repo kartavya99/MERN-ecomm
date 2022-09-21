@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import { ADD_TO_CART } from "./action";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "./action";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -8,6 +8,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart, action.cart],
+      };
+
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((newProduct) => newProduct._id !== action._id),
       };
 
     default:

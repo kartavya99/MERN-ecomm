@@ -17,7 +17,7 @@ import {
 } from "react-bootstrap";
 
 const ProductPage = () => {
-  const [qty, setQty] = useState();
+  const [qty, setQty] = useState(1);
   const [state, dispatch] = useStoreContext();
   const { cart } = state;
 
@@ -35,6 +35,8 @@ const ProductPage = () => {
     });
 
     navigation(`/cart/${data.product._id}?qty=${qty}`);
+    console.log(qty);
+    console.log(data.product._id);
   };
 
   //   console.log(data);
