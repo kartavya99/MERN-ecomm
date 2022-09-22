@@ -6,9 +6,15 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { StoreProvider } from "./utils/GlobalState";
+import Auth from "./utils/auth";
 
 import "./App.css";
 
@@ -20,6 +26,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import Login from "./pages/LoginPage/LoginPage";
 import Register from "./pages/RegisterPage/RegisterPage";
 import ProductListPage from "./pages/ProductListPage/ProductListPage";
+import UserListPage from "./pages/UserListPage/UserListPage";
 
 //Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -63,6 +70,10 @@ function App() {
                   <Route
                     path="admin/productlist"
                     element={<ProductListPage />}
+                  ></Route>
+                  <Route
+                    path="admin/userlist"
+                    element={<UserListPage />}
                   ></Route>
                 </Routes>
               </Container>
