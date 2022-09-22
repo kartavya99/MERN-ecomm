@@ -139,7 +139,7 @@ export const QUERY_ORDER = gql`
 `;
 
 export const QUERY_USERS = gql`
-  query Query {
+  query users {
     users {
       _id
       firstName

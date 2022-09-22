@@ -13,16 +13,19 @@ const resolvers = {
       throw new AuthenticationError();
     },
 
-    users: async (parent, args, context) => {
-      if (context.user.isAdmin) {
-        // console.log(context.user.isAdmin);
-        return await User.find({});
-      }
-
-      throw new AuthenticationError(
-        "You need to be Admin to see users details"
-      );
+    users: async (parent, args) => {
+      return await User.find({});
     },
+    // users: async (parent, args, context) => {
+    //   if (context.user.isAdmin) {
+    //     // console.log(context.user.isAdmin);
+    //     return await User.find({});
+    //   }
+
+    //   throw new AuthenticationError(
+    //     "You need to be Admin to see users details"
+    //   );
+    // },
 
     singleUser: async (parent, { _id }, context) => {
       if (context.user.isAdmin) {

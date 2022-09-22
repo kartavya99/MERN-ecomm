@@ -11,7 +11,7 @@ import { BsFileEarmarkDiffFill } from "react-icons/bs";
 
 const ProductListPage = () => {
   const { data, loading } = useQuery(QUERY_ALL_PRODUCTS);
-  //   console.log(data.getAllProducts);
+  console.log(data);
 
   return (
     <>
